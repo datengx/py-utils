@@ -3,6 +3,11 @@ import sys, os
 rootdir = '/Users/dateng/Developer/python/iterate_folder'
 
 def print_dir(dir, level=1):
+"""	dir: directory to print
+	level: how much deeper to go into the 'dir' folder
+	Explore the folder specified by 'dir' directory. Print out the result
+	with structural indentation
+"""
 	for token in os.listdir(dir):
 		if os.path.isdir(os.path.join(dir, token)):
 			print(" "*(level-1) + token);
@@ -17,6 +22,7 @@ def add_output_dir(dir):
 					os.makedirs(curr + "_OUTPUT")
 			else:
 				add_output_dir(curr)
+				
 def remove_output_dir(dir):
 	for token in os.listdir(dir):
 		curr = os.path.join(dir, token)
